@@ -1,10 +1,13 @@
-var express           = require('express'),
-    validationHandler = require('../handlers/validation');
+var express     = require('express'),
+    userHandler = require('../handlers/user');
 
 module.exports = function ( app ) {
-  var validationRouter = express.Router();
+  var userRouter = express.Router();
 
-  validationRouter.get('/', validationHandler.validate);
+  userRouter.get('/:id', userHandler.findById);
+  userRouter.post('/', userHandler.create);
+  userRouter.put('/:id', userHandler.update);
+  userRouter.delete('/:id', userHandler.remove);
 
-  app.use('/api/validate', validationRouter);
+  app.use('/api/users', userRouter);
 };

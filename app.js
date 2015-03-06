@@ -13,7 +13,7 @@ exports.init = function ( app ) {
   winston.debug(chalk.dim('Setting server options...'));
 
   app.enable('trust proxy');
-  app.set('x-powered-by', 'Associated Employers');
+  app.set('x-powered-by', 'Tank Stock');
   
   if( cluster.worker ) {
     app.set('worker', cluster.worker.id);
@@ -53,38 +53,4 @@ exports.init = function ( app ) {
 exports.registerModels = function () {
   winston.debug(chalk.dim('Registering models...'));
   globSync('./models/**/*.js').map(require);
-};
-
-/**
- * Registers all propositions from the manifest
- * @return {Promise}
- */
-exports.registerPropositions = function () {
-  var Proposition  = require(process.cwd() + '/models/prop'),
-      propositions = require(process.cwd() + '/config/propositions'),
-      Promise      = require('bluebird');
-
-  return Promise.all(propositions.map(function ( proposition ) {
-    return new Promise(function ( resolve, reject ) {
-      Proposition.findOne({ title: proposition.title }, function ( err, foundProp ) {
-        if ( err ) {
-          return reject( err );
-        }
-
-        if ( foundProp ) {
-          return resolve( foundProp );
-        }
-
-        var createdProp = new Proposition( proposition );
-
-        createdProp.save(function ( err, newProp ) {
-          if ( err ) {
-            return reject( err );
-          }
-
-          resolve( newProp );
-        });
-      });
-    });
-  }));
 };

@@ -1,18 +1,18 @@
 {
-  "name": "superbowl-bets-server",
-  "version": "0.0.1",
-  "description": "Superbowl Bets Server",
+  "name": "tank-stock-server",
+  "version": "0.0.0",
+  "description": "Tank Stock Server",
   "main": "index.js",
   "scripts": {
     "test": "environment=test mocha \"tests/**/*.js\" --reporter spec",
     "test-acceptance": "environment=test mocha \"tests/acceptance/**/*.js\" --reporter spec",
     "test-unit": "environment=test mocha \"tests/unit/**/*.js\" --reporter spec"
   },
-  "repository": "https://github.com/associatedemployers/superbowl-bets-server",
+  "repository": "https://github.com/james1x0/tank-stock-server",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "Associated Employers",
+  "author": "james1x0",
   "license": "ISC",
   "dependencies": {
     "MD5": "^1.2.1",
@@ -23,9 +23,10 @@
     "express": "^4.10.2",
     "glob": "^4.1.2",
     "jwt-simple": "^0.2.0",
+    "keygenerator": "^1.0.2",
     "lodash": "^2.4.1",
     "moment": "^2.8.3",
-    "mongoose": "^3.8.19",
+    "mongoose": "^3.8.24",
     "morgan": "^1.5.0",
     "promise": "^6.0.1",
     "winston": "^0.8.3"

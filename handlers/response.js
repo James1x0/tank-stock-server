@@ -10,7 +10,7 @@ exports.error = {
   res: function ( res, err, thr ) {
     logger.log('debug', err);
     
-    if( thr ) {
+    if ( thr ) {
       res.status(500).send( err );
       throw new Error(err);
     } else {

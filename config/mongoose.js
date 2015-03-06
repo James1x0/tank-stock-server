@@ -10,7 +10,7 @@ var connection;
 
 exports.init = function ( db, address, singleton ) {
   // Defaults
-  db      = ( process.env.environment === 'test' ) ? 'superbowlbetstest' : ( db ) ? db : 'superbowlbets';
+  db      = ( process.env.environment === 'test' ) ? 'tankstocktest' : ( db ) ? db : 'tankstock';
   address = address || 'localhost';
 
   if( !connection && !singleton ) {

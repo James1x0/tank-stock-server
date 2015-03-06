@@ -17,7 +17,7 @@ var systemSchema = new Schema({
   readings:  [{ type: Mongoose.Schema.ObjectId, ref: 'Reading' }],
   livestock: [{ type: Mongoose.Schema.ObjectId, ref: 'Livestock' }],
   notes:     [{ type: Mongoose.Schema.ObjectId, ref: 'Note' }],
-  owner:     { type: Mongoose.Schema.ObjectId, ref: 'User' },
+  user:      { type: Mongoose.Schema.ObjectId, ref: 'User' },
 
   time_stamp: { type: Date, default: Date.now, index: true }
 });
